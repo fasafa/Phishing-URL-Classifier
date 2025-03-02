@@ -1,0 +1,81 @@
+1. URL & Domain-Related Features
+URL – The full website address.
+URLLength – The total number of characters in the URL.
+Domain – The main domain of the website (e.g., example.com).
+DomainLength – The number of characters in the domain.
+IsDomainIP – Whether the domain is an IP address instead of a name (1 = Yes, 0 = No).
+TLD – The top-level domain (e.g., .com, .org, .net).
+URLSimilarityIndex – A measure of how similar the URL is to legitimate websites (probably using Levenshtein distance or other similarity metrics).
+CharContinuationRate – Likely measures the pattern of consecutive characters in the URL (long, unbroken strings may indicate phishing attempts).
+TLDLegitimateProb – Probability that the TLD is legitimate based on historical data.
+URLCharProb – Probability of characters in the URL being part of a legitimate URL structure.
+TLDLength – The length of the top-level domain (e.g., .com = 3, .network = 7).
+NoOfSubDomain – The number of subdomains in the URL (e.g., shop.example.com has 1 subdomain).
+
+
+2. URL Obfuscation Features
+HasObfuscation – Whether the URL contains obfuscation techniques (1 = Yes, 0 = No).
+NoOfObfuscatedChar – Number of obfuscated characters in the URL (e.g., replacing letters with similar-looking characters).
+ObfuscationRatio – Ratio of obfuscated characters to total characters in the URL.
+
+3. Character-Based Features¶
+NoOfLettersInURL – Number of alphabetic letters in the URL.
+LetterRatioInURL – Percentage of letters in the URL.
+NoOfDegitsInURL – Number of digits in the URL.
+DegitRatioInURL – Percentage of digits in the URL.
+NoOfEqualsInURL – Count of = in the URL (often used in tracking or suspicious queries).
+NoOfQMarkInURL – Number of ? in the URL (used for queries, sometimes suspicious).
+NoOfAmpersandInURL – Count of & (used in multiple query parameters).
+NoOfOtherSpecialCharsInURL – Number of other special characters (@, %, $, etc.).
+SpacialCharRatioInURL – Ratio of special characters in the URL.
+
+
+## 4. Security & Redirect Features
+* IsHTTPS – Whether the website uses HTTPS (1 = Yes, 0 = No).
+* NoOfURLRedirect – The number of times the URL redirects.
+* NoOfSelfRedirect – Number of self-redirects (looping back to the same site).
+
+
+
+## 5. Web Page Structure & Content Features
+* LineOfCode – Number of lines in the webpage's source code.
+* LargestLineLength – Length of the longest line in the source code (might indicate obfuscation or minified code).
+* HasTitle – Whether the webpage has a tag (1 = Yes, 0 = No)
+  
+* DomainTitleMatchScore – A score indicating how closely the domain name matches the page title (higher scores mean more trustworthy).
+
+* URLTitleMatchScore – Similar to DomainTitleMatchScore, but for the full URL.
+* HasFavicon – Whether the website has a favicon (1 = Yes, 0 = No).
+* Robots – Whether the site has a robots.txt file (1 = Yes, 0 = No).
+* IsResponsive – Whether the site adapts to different screen sizes.
+* HasDescription – Whether the page has a meta description
+
+
+## 6. UI & Interaction Features
+* NoOfPopup – Number of popup windows on the page.
+* NoOfiFrame – Number of iframe elements (often used for embedding content or phishing attacks)
+                                          
+* HasExternalFormSubmit – Whether the page contains a form that submits data to an external site (1 = Yes, 0 = No).
+* HasSocialNet – Whether the page has links to social media.
+* HasSubmitButton – Whether the page has a submit button (1 = Yes, 0 = No).
+* bHasHiddenFields – Presence of hidden form fields (could indicate malicious intent).
+* HasPasswordField – Whether the page has a password input field.
+
+## 7. Financial Keywords & Copyright
+* Bank – Whether banking-related words appear on the page.
+* Pay – Whether payment-related words appear on the page.
+* Crypto – Whether cryptocurrency-related words appear.
+* HasCopyrightInfo – Whether the page includes copyright information.
+
+## 8. External & Internal References
+* NoOfImage – Number of images on the page.
+* NoOfCSS – Number of CSS stylesheets.
+* NoOfJS – Number of JavaScript files.
+* NoOfSelfRef – Number of links pointing to the same website.
+* NoOfEmptyRef – Number of empty <a href=""> links.
+* NoOfExternalRef – Number of external links on the page
+
+## 9. Target Variable
+* label – The target column (1 = Phishing/Malicious, 0 = Legitimate).
+
+
