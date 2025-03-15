@@ -19,9 +19,6 @@ To analyze these features and implement machine learning techniques to classify 
 - Checked for null values and duplicate records, ensuring a clean dataset.
 
 ### Exploratory Data Analysis (EDA)
-- **Univariate Analysis**: Examined individual feature distributions.
-- **Bivariate Analysis**: Analyzed relationships between two variables.
-- **Multivariate Analysis**: Explored interactions among multiple features.
 - **Skewness Correction**: Applied transformations to normalize skewed features.
 - **Final Cleaned Dataset**: Prepared a refined dataset for further processing.
 
@@ -32,14 +29,10 @@ To analyze these features and implement machine learning techniques to classify 
 
 ### Feature Selection
 - Used the **SelectKBest** method to select the most relevant features.
-- Applied the **Elbow Method** to determine the optimal number of features (k).
 - Selected **50,000 random instances** for model training and evaluation.
 
 ### Feature Scaling
 - Standardized features to ensure uniformity.
-
-### Dimensionality Reduction
-- Applied **Principal Component Analysis (PCA)** to reduce the dataset to **10 features**.
 
 ## Model Training and Evaluation
 
@@ -48,9 +41,8 @@ To analyze these features and implement machine learning techniques to classify 
 
 ### Machine Learning Models Used
 - **Random Forest**
-- **XGBoost**
 - **Support Vector Machine (SVM)**
-- **Decision Tree (Two variations)**
+- **Gradient Boosting**
 - **Logistic Regression**
 
 ### Evaluation Metrics
@@ -59,21 +51,33 @@ To analyze these features and implement machine learning techniques to classify 
 - **Training vs. Test Accuracy Comparison**
 - **Overfitting Issue**: Initially observed overfitting in some models.
 
+## Cross-Validation
+
+- Applied Stratified K-Fold Cross-Validation with 10 splits to ensure robust performance evaluation and avoid overfitting.
+
+- After cross-validation, Random Forest was finalized as the best model with:
+
+- Train Accuracy = 99.69%
+
+- Test Accuracy = 99.52%
+
+- Generalization Gap = 0.0017 (indicating no significant overfitting)
+
 ## Hyperparameter Tuning
 
-- Applied hyperparameter tuning to all models to improve performance.
+- Applied hyperparameter tuning to all models except the selected one (Random Forest), as it already achieved high accuracy.
 
 ### Best Performing Model
-- **Decision Tree** achieved an accuracy of **97%** after tuning.
+- **Random Forest** was finalized as the best-performing model due to its balance between accuracy and generalization.
 
 ### Final Model Validation
 - Compared training and test accuracy to confirm model performance and generalization.
-- 
+
 ### Limitations of the model:
 * Generalization Issues – Might fail on new phishing techniques or domains not in training data.
 * Class Imbalance – If legitimate URLs dominate, the model may favor non-phishing classifications.
 * Overfitting – If overly tuned to training data, it might perform poorly on unseen URLs.
-* Latency & Performance – Too slow for real-time use if complex, making deployment difficult.
+* Latency & Performance – Too slow for real-time use if complex, making deployment difficult..
 * Lack of Adaptive Learning – Phishing tactics evolve, and a static model may become outdated.
 * Lack of Real-Time Analysis – The model may not work effectively on live URLs without additional web-based features.
 * Static Analysis Constraint – Only analyzing the URL structure may miss phishing pages that dynamically load content.
@@ -85,4 +89,3 @@ To analyze these features and implement machine learning techniques to classify 
 * Handle Real-Time URL Analysis – Implement live detection using APIs (e.g., Google Safe Browsing, VirusTotal).
 * Improve Model Generalization – Regularly update the dataset to detect new phishing tactics.
 * Optimize for Deployment – Convert the model into a lightweight API or browser extension for real-time use.
-
