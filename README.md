@@ -65,7 +65,7 @@ To analyze these features and implement machine learning techniques to classify 
 
 ## Hyperparameter Tuning
 
-- Applied hyperparameter tuning to all models except the selected one (Random Forest), as it already achieved high accuracy.
+- Hyperparameter tuning was not applied because the Random Forest model already achieved high accuracy with minimal overfitting. Further tuning was unnecessary as it would not significantly improve performance.
 
 ### Best Performing Model
 - **Random Forest** was finalized as the best-performing model due to its balance between accuracy and generalization.
